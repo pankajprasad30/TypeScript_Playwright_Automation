@@ -1,0 +1,39 @@
+1. Create a folder with name as
+   -> e.g. JavaScriptPractice
+   -> Make sure there is no space in folderName.
+
+2. Open intergrated terminal for JavaScriptPractice folder
+   -> right click on JavaScriptPractice folder.
+   -> select option as "Open in intergrated terminal".
+   -> It will open terminal in dedicated folder.
+   
+3. Run below command on terminal 
+   -> npm init -y
+   -> it will create a file with name as package.json in JavaScriptPractice Folder.
+
+
+4. Create a first program file inside JavaScriptPractice folder
+   -> right click on JavaScriptPractice folder
+   -> Select New File Option.
+   -> Provide filename as FirstProgram.js 
+   -> Add content in the file
+   -> console.log("Hello World")
+
+   -> Open intergrated terminal in JavaScriptPractice folder.
+   -> run below command to execute the file.
+   -> node FirstProgram.js
+   -> It will execute the file and print output
+
+
+5. Intall plugin to excute the javaScript file.
+   -> Go to Left Menu Panel
+   -> click on Extension Icon (Dice Icon)
+   -> enter "code runner" in search bar and press enter.
+   -> it will show .run icon extension with name as "Code Runner"
+   -> Click on "Code Runner" extension.
+   -> Click on install button and complete the installation.
+
+
+6. Open your FirstProgram.js file and there will be a Play button in
+   right top corner and click on it, it will will execute the file
+   and show the output.

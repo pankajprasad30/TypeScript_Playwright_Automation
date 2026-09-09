@@ -1,2 +1,346 @@
 Notes:
-1. 
+1. ################# Create GitHub Account ###########################
+1. Open GitHub.com
+2. click on signup button.
+3. Enter email id.
+4. enter unique password.
+5. enter unique name.
+6. click on checkboxes.
+7. click Create account button.
+8. It will navigate to Verification screen.
+   -> user will receive verification code.
+   -> get code from email and enter it.
+9. re-login on UI with git credentials.
+10. Account creation is successful.
+
+################## Create GitHub Repository ##################
+
+1. Once login successfully.
+2. click on create repository button.
+3. Provide repository name e.g. TestAutomation.
+4. Provide description e.g. TestAutomation
+5. Choose Repo visibility Public.
+6. Select Readme option.
+7. Select gitignore option as AL.
+8. Ignore License keep default one.
+9. click create repository button.
+10. Repository Creation is successful.
+
+######## Install git client on local machine #############
+
+1. Download git client from given location.
+https://git-scm.com/install/windows
+
+2. Initiate the installation and complete it by clicking on continue button, keep all settings default don't change any setting.
+
+3. Search for git bash in windows search. and open git bash terminal.
+4. Run below on git terminal 
+    -> git --help
+    -> It will show all commands are available.
+
+######## clone repository on local system #############
+1. Create a folder with name Gitcode in C Drive.
+2. Open Gitcode and open git terminal by following steps.
+   -> right click inside GitCode folder.
+   -> click on Show more options.
+   -> click on Open Git Bash Here.
+   -> It will open git terminal in current directory.
+
+3. Go to GitHub server -> Open Repository we have create prior.
+4. Click on Code button (Green color).
+5. Copy https repository URL from popup.
+6. Navigate back to git terminal.
+7. Run below command to clone repo.
+   -> git clone https://github.com/mohitgargmht/TestAutomation.git
+
+8. It will clone repository locally and auto create a folder with 
+   Repository name.
+
+########## Push First File to Git Repo ###################
+1. On local system , navigate to C:\GitCode\TestAutomation Repo folder.
+2. Create a text file inside Repo folder
+   -> Right click inside repo folder -> New -> New Text Document 
+   -> Filename : FirstDemoFile.txt
+   -> Add some content to the file and save it.
+
+3. Open git terminal in TestAutomation Repo folder.
+4. run command to check git status
+   -> git status : file show in red color.
+
+5. initiate add operation.
+   -> git add Filename/path
+
+6. check status again
+   -> git status : file will show in green  color.
+
+
+
+7. initiate commit operation with below command
+    -> git commit -m "added new file"
+    -> it will show below commands to run in the terminls
+    
+  -> git config --global user.email "eeeganesh3@gmail.com"
+  -> git config --global user.name "Ganesamoorthyprabavya"
+  
+  -> enter above commands one by one 
+  -> re-initiate the commit operation.
+  -> git commit -m "added new file"
+   -> it will complete the commit operation.
+
+
+8. Initiate push operation
+   -> git push
+   -> It will launch one popup
+   -> click on open with Browser option.
+   -> Complete Authorize git ecosystem process.
+   -> file pushed successfully to the server.
+
+
+Class Work :
+
+ - Create 2 files with name  File1.txt, File2.txt
+ - Push boths file (git status, git add <filename>, git commit -m "msg", git push)
+ - Update File1.txt
+ - Rename File2.txt to NewFile2.txt
+ - Push again.
+
+############# Create common and provide access #############
+1. Created a repository with name : GTM_PlaywrightTS_BATCH19
+2. Provided access to all the students , they have to accept it and
+   should able to repo in their account.
+
+# Following these instruction while accepting the invitation.
+1. You have to check your mail, you will receive invitation from SQAtools
+2. Open mail -> click on view invitation -> accept invitation.
+3. Once you accepted invitation you will see Batch19 repo  in your account
+4. Make sure you accept it from laptop not from mobile.
+
+##### Clone Common Repo and Create Folder with Your Name ########
+1. GO to C:\Gitcode folder.
+2. Open terminal in Gitcode folder
+   -> right click -> show more option -> open git Bash here
+   -> It will open git terminal in C:\GitCode folder.
+
+3. Copy GTM_PlaywrightTS_BATCH19 repo URL from server
+  -> Open git Account on git server 
+  -> Navigate to GTM_PlaywrightTS_BATCH19 Repo 
+  -> click on Code button 
+  -> click on copy repository URL.
+
+4. Clone Repository locally.
+  -> Navigate back to get terminal
+  -> run below command to clone repo.
+  -> git clone https://github.com/sqatools/GTM_PlaywrightTS_BATCH19.git
+  -> It will clone repo locally.
+  -> It will create GTM_PlaywrightTS_BATCH19 folder locally
+     inside GitCode folder.
+
+5. Create folder with your name as add a file.
+   -> Open GTM_PlaywrightTS_BATCH19 locally.
+   -> Create a folder with your name inside repo folder.
+      e.g. DeepeshY
+   -> Create a file inside your with name TestDemo.txt
+   -> Add some content to the file and save it.
+  
+6. Push folder to repo.
+   -> Open terminal
+   -> Navigate to Repository folder.
+   -> cd GTM_PlaywrightTS_BATCH19
+   -> git status : folder will show in red color
+   -> git add Foldername
+   -> git status : folder and filename shows in green color.
+   -> git commit -m "added new file to Repo"
+   -> git push (Your push may be rejected)
+      -> git pull <it will open linux editor>
+      -> shift :wq and press enter
+      -> it will close the editor
+      -> now try to push
+      -> git push
+      -> if your push is rejected again.
+
+   -> if your folder is push successful, please check on server.
+
+
+################ Multi Branching Fundamentals ###############
+  
+1. Create a branch from git hub server.
+   - Go to GitHub server
+   - Open common Repository : GTM_PlaywrightTS_BATCH17
+   - click on branch option : default name is main branch.
+   - click on view all branches -> Only main branch will be visible initially.
+   - click on New Branch button.
+   - Provide Branch Name : e.g. DeepeshY_Branch
+   - click on Create New Branch.
+   - branch creation is successful, it will be visible in branch list.
+
+2. Pull all branches on local repo folder.
+   - Open git terminal in repo folder : GTM_PlaywrightTS_BATCH17
+   - pull all changes from server to local repo
+   - git pull : it will pull all changes/branches from server to local system.
+
+3. switch to new Branch.
+   - git branch : it will show main as active branch green color.
+   - git checkout BranchName
+   - e.g. git checkout DeepeshY_Branch.
+     branch 'DeepeshY_Branch' set up to track 'origin/DeepeshY_Branch'.
+     Switched to a new branch 'DeepeshY_Branch'
+
+   - git branch : New branch will be a active branch show in green color(DeepeshY_Branch)
+
+4. Push code to new branch.
+   -> Create a file inside your dedicated folder. 
+   -> filename :Deepesh_Feature.txt
+   -> Add come content to the filename and save it.
+
+5.  Push code to repo.
+    -> git status:  it will show files in red color.
+    -> git add <filepath>
+    -> git status : it will show file in green color.
+    -> git commit -m "added new file"
+    -> git push : It will push to repository.
+
+6. Create pull request from server. 
+    -> Go to server open Repository on server . GTM_PlaywrightTS_BATCH17
+    -> User will see Compare & Pull request button , if changes are psuhed to feature branch.
+    -> click on compare and pull request button -> Provide required information.
+
+      -> title: it should be relevant to the what code changes you done.
+      -> description : Provide detailed information about your code, 
+                so that reviewer can easily understand purpose of code changes.
+      -> reviewer : Add your team members as reviewer to review the code provide feedback.
+      -> Assignee : Add your name as assignee, that you are going look into the code.
+      -> click on create pull request button.
+
+
+7. Review code.
+  
+
+#################### Resolve Merge conflict File ###########################
+Scenario:
+ 
+1. in Stage_Branch branch we have file with name DemoTesting.txt
+   DemoTesting.txt : Learning GitHub
+2.  P1 : P1_Branch from stage branch.
+    DemoTesting.txt : P1: Learning GitHub Fundamentals
+3  P2: P2_Branch from stage branch
+   DemoTesting.txt : P2: Learning GitHub MultiBranching
+4. P1_Branch create pull request to Stage Branch and Merge change to Stage Branch.
+5. P2_Branch create pull request to Stage Branch and Try to Merge changes, it will create merge conflict.
+
+#### Steps to Reproduce to Merge conflict scenario #
+1. Open git terminal in and make you are in main branch.
+   -> git branch : it will show current active main.
+   -> if you have local change push those to branch.
+   -> switch the branch
+   -> git checkout main  # It will switch to main branch.
+   -> git branch : main should show in green color.
+   -> git pull  : update all code changes from main branch.
+
+
+2. Create a stage branch from main branch
+   stage branch name : DyStageBranch
+   -> git checkout -b DyStageBranch
+   -> It will create branch locally and switch to new stage Branch.
+   
+3. Create a file insider your folder with name
+   -> filename : DyStageFile.txt
+   -> Add some content file
+   -> content : Learning GitHub
+
+4. Push file to server.
+   -> git status : file will show in red color
+   -> git add filename
+   -> git status : It will show in green color
+   -> git commit -m "added new file to stage"
+   -> git push
+   -> Branch is available locally we have to push it by setting up, upstream.
+   -> git push --set-upstream origin DyStageBranch
+
+
+5. From server create 2 branches on server, make sure your stage branch is source branch
+   Branch1 : Dy_P1_Branch
+   Branch2 : Dy_P2_Branch
+   Source Branch : DyStageBranch
+   
+-> Go Repository on server
+-> Click on branch dropdown -> click on view all branches.
+-> Click on create branch button.
+-> Select DyStageBranch as source and provide and new branch Dy_P1_Branch, Dy_P2_Branch
+
+
+6.  Go back git terminal and make your current active branch is stage Branch e.g. DyStageBranch
+   -> git branch : It will show DyStageBranch as active branch
+   -> git pull : It will pull all new branches locally.
+   -> switch to your P1 Branch : Dy_P1_Branch
+   -> git checkout Dy_P1_Branch
+
+   -> Update the DyStageFile.txt with new content in your folder
+    updated content : P1 Learning GitHub Fundamentals
+
+
+   -> Push file changes to server.
+      -> git status : file will show in red color
+      -> git add filename
+      -> git status : file will show in green color
+      -> git commit -m "added new file in stage"
+      -> git push
+
+
+7. Switch to Dy_P2_Branch and update stage file.
+   -> git checkout Dy_P2_Branch
+   -> Open your folder in local and update DyStageFile.txt with new content and save it.
+   Updated content : P2 Learning GitHub MultiBraching
+   -> push file changes to the server.
+      -> git status : file will show in red color
+      -> git add filename
+      -> git status : file will show in green color
+      -> git commit -m "added new file in stage"
+      -> git push
+
+
+8. Go to GitHub server and create pull request from "Dy_P1_Branch" and merge it to Stage Branch.
+   Merge from Dy_P1_Branch -> DyStageBranch
+
+
+9. Create pull request from ""Dy_P2_Branch" and keep "DyStageBranch" as target.
+   -> It will show error on GitHub server : Can’t automatically merge
+   -> Dy_P2_Branch branch has merge conflict
+   -> Once we create the pull request, merge button will be disabled.
+   -> it will show message : This branch has conflicts that must be resolved
+
+
+10. Resolve merge conflict scenario locally and update the PR.
+  -> Go back to git terminal
+  -> Make sure your current active branch is "Dy_P2_Branch"
+  -> git branch : Dy_P2_Branch
+  -> git pull origin DyStageBranch  
+  -> It will pull all changes from "DyStageBranch" branch to "Dy_P2_Branch"
+     -> it will show conflict error on git terminal 
+      Auto-merging DeepeshY/DyStageFile.txt
+      CONFLICT (content): Merge conflict in DeepeshY/DyStageFile.txt
+      Automatic merge failed; fix conflicts and then commit the result.
+
+ -> Open DeepeshY/DyStageFile.txt file locally and it will show below content.
+
+
+	<<<<<<< HEAD # current active branch changes.
+	P2 Learning GitHub MultiBraching
+       ======= # DyStageBranch branch changes.
+       P1: Learning GitHub Fundamentals
+       >>>>>>> df5efa67d470779d2c76fd09b29f07b4afde8d0f
+   
+   
+-> Update the file and modify it as content as per requirement.
+     Updated content.
+     P1, P2 Learning GitHub Fundamentals & MultiBraching
+
+-> push changes to "Dy_P2_Branch" branch.
+  -> git status : red color file
+  -> git add filepath
+  -> git status : green color file
+  -> git commit -m "Updated file and resolve merge conflict"
+  -> git push
+
+-> Open "Dy_P2_Branch" pull request on server and check there is no error.
+
+  
