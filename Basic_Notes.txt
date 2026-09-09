@@ -37,3 +37,8 @@
 6. Open your FirstProgram.js file and there will be a Play button in
    right top corner and click on it, it will will execute the file
    and show the output.
+
+## How to disable auto suggestion while typing codes.
+-> Click on setting options available on LHS side..
+-> Type auto suggestions and navigate to -> GitHub › Copilot: Enable
+-> Disable value as false for all options under copilot.
