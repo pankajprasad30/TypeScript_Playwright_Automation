@@ -1,0 +1,29 @@
+31 Aug 2026
+// Variable notes: go throuch all the fundamentals. 
+https://sqatools.in/javascript-variables/
+
+.................................................................................
+1 Sep 2026
+// Operators
+// Go through notes and practise
+Notes:  https://sqatools.in/javascript-operators/
+Practice: https://sqatools.in/javascript-operatorsreal-life-assignment-questions/
+
+..................................................................................
+2 sep 2026 : if condition program
+Note: https://sqatools.in/javascript-if-condition/
+practice prog: https://sqatools.in/if-condition-programs/
+..................................................................................
+4 Sept 2026
+Notes : https://sqatools.in/javascript-loop/
+Assignment : https://sqatools.in/javascript-loop-programs/
+
+
+.................................................................................._
+8th Sept 2026
+Notes : https://sqatools.in/javascript-function/
+
+..................................................................................
+9th Sept 2026
+Notes             : https://sqatools.in/javascript-string/
+Practice Programs : https://sqatools.in/javascript-string-programs/

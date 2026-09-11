@@ -1,0 +1,27 @@
+1. open package.json file and update the type
+type: "module" // Earlier: "type": "commonjs"
+
+2. Create 2 module files as module1.js, module2.js
+
+3. write few fucntion in module1.js file as export keyword with each function
+  e.g. 
+  
+export function addition(n1, n2) {
+    console.log("Addition output :", n1+n2)
+}
+
+4. Open module2.js file and try to import function from module1.js to module2.js
+    -> import {addition} from './module1.js'
+    -> addition(50, 700)
+
+5. It will execute the code and in module2.js and generate output.
+
+6. if we want to import all function in one go
+import * as abc from './module1.js'
+
+addition(50, 700)
+abc.multiplication(8, 6)
+abc.division(20, 4)
+abc.addition(abc.x, 700)
+
+  
