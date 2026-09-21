@@ -1,0 +1,134 @@
+JavaScript Data Types (Basics)
+
+👉 There are two main categories:
+
+1. Primitive  Data Types
+2. Non-Primitive (Reference) Data Types
+
+🔹 1. Primitive Data Types
+
+✅ 1. Number
+Represents both integers and floating-point numbers.
+
+let age = 25;
+let price = 99.99;
+
+✅ 2. String
+Represents text (inside quotes).
+
+let name = "Deepesh";
+let message = 'Hello World';
+
+✅ 3. Boolean
+Represents true or false.Master Coding Skills
+
+let isLoggedIn = true;
+let isAdmin = false;
+
+✅ 4. Undefined
+A variable declared but not assigned a value.
+
+let x;
+console.log(x); // undefined
+
+✅ 5. Null
+Represents intentional absence of value.
+
+let data = null;
+
+✅ 6. BigInt
+Used for very large integers.
+
+let bigNumber = 123456789012345678901234567890n;
+
+✅ 7. Symbol
+Used for unique identifiers.
+
+let id = Symbol("userId");
+
+
+🔹 2. Non-Primitive (Reference) Data Types
+-> These store collections or complex data.
+
+✅ 1. Object
+Key-value pairs.
+
+let user = {
+  name: "Deepesh",
+  age: 25,
+  isActive: true
+};
+
+✅ 2. Array
+Ordered list of values.Data Management
+
+let fruits = ["apple", "banana", "mango"];
+
+✅ 3. Function
+A block of reusable code.
+
+function greet() {
+  return "Hello!";
+}
+
+🔹 typeof Operator
+Used to check the data type.
+
+console.log(typeof 10);          // number
+console.log(typeof "Hello");     // string
+console.log(typeof true);        // boolean
+console.log(typeof undefined);   // undefined
+console.log(typeof null);        // object (known JS bug)
+console.log(typeof {});          // object
+console.log(typeof []);          // object
+
+⚠️ Important Notes
+null returns "object" → historical bug in JavaScript
+Arrays are technically objects
+Functions are also treated as objects
+
+🧠 Quick Summary Table
+
+Type	     Example
+Number	     10, 3.14
+String	     "Hello"
+Boolean    	 true, false
+Undefined  	 let x;
+Null	     null
+BigInt	     123n
+Symbol	     Symbol("id")
+Object	     {name: "John"}
+Array	     [1,2,3]
+Function	 function(){}
+
+🚀 Simple Example Combining All
+
+let user = {
+  name: "Pankaj",                  // string
+  age: 25,                         // number
+  isLoggedIn: true,                // boolean
+  balance: 1000000000000000000n,   // BigInt
+  id: Symbol("id"),                // symbol
+  hobbies: ["coding", "music"],    // array
+  address: null                    // null
+};
+
+console.log(user);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

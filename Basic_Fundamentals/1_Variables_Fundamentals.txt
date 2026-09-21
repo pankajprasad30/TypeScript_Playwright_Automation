@@ -1,0 +1,80 @@
+1. What Are Variables in JavaScript?
+-- > In JavaScript, variables are declared using var, let, and const. 
+     These keywords define how variables behave in terms of scope and mutability. 
+     Modern JavaScript development strongly favors let and const because they provide better control and reduce unexpected bugs. 
+     If you’re building dynamic websites or applications, understanding variables is absolutely essential because they drive logic, interactivity, and data handling.
+
+2. Understanding var
+-- > The var The keyword is the oldest method for declaring variables in JavaScript. 
+     It is function-scoped, meaning it is accessible throughout the function in which it is defined. 
+    One unique characteristic of var is that it allows both redeclaration and reassignment, which can sometimes introduce bugs if not handled carefully.
+
+    var name = "John";
+    var name = "Doe"; // Allowed
+    console.log(name); // Output: Doe
+    // Because of these limitations, developers rarely use var in modern applications unless maintaining legacy code.
+
+3. Understanding let
+-- > The let keyword was introduced in ES6 and is now widely used.  
+     It provides block-level scope, meaning the variable is only accessible within the block {} where it is defined. 
+     This makes code more predictable and easier to debug.
+
+     let age = 25;
+     age = 30; // Allowed
+     // let age = 35; ❌ Not allowed
+     // Using let ensures that variables don’t accidentally leak outside their intended scope.
+
+4. Understanding const
+-- > The const keyword is used to declare variables whose values should not change. 
+     Once assigned, a const variable cannot be reassigned. However, if the variable holds an object or array, its internal properties can still be modified.
+
+     const country = "India";
+     // country = "USA"; ❌ Error
+     // This makes const ideal for values that should remain constant throughout the program
+
+5. Key Differences Between var, let, and const
+-- > Scope Explained
+     Keyword	   Scope Type
+     var	        Function/Global
+     let	        Block
+     const	   Block
+
+-- > Reassignment vs Redeclaration
+     Keyword	   Reassign	   Redeclare
+     var	        Yes	        Yes
+     let	        Yes	        No
+     const	   No	        No
+
+6. Rules for Naming Variables
+-- > Valid Naming Conventions
+     -> Start with a letter, _, or $
+     -> Can include numbers (not at the beginning)
+     -> Case-sensitive
+
+7. Rules to define a variable name
+✅ 1. Allowed Characters
+--> Variable names can contain:
+    -> Letters (a–z, A–Z)
+    -> Digits (0–9)
+    -> Underscore (_)
+    -> Dollar sign ($)
+❌ 2. Cannot Start with a Number
+    -> let 1name;
+❌ 3. No Spaces Allowed
+    -> let user name;
+❌ 4. Cannot Use Reserved Keywords
+    -> let var = 10;
+✅ 5. Case Sensitive
+    -> let name = "John";
+       let Name = "Doe"; // different variable
+✅ 6. Use Meaningful Names (Best Practice)
+    -> let userAge = 25;
+       let totalPrice = 100;
+✅ 7. Use camelCase (Convention)
+    -> let firstName;
+       let totalAmount;
+✅ 8. Avoid Special Characters
+    -> let user@name
+✅ 9. Use let, const, or var
+    -> let age = 20;
+       const PI = 3.14;

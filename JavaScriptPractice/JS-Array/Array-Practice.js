@@ -151,3 +151,71 @@ var p = [10, 20, 30, 40, 50, 11, 33, 44, 55]
 console.log(p.slice(2, 7)) // [ 30, 40, 50, 11, 33 ]
 console.log(p.slice(-5, -1)) // [ 50, 11, 33, 44 ]
 console.log(p[2], p[7]) // 30 44
+
+console.log("#####################################")
+// short() method: sorting of array values:
+// this method help to short arrays in assending and desending order.
+
+
+var arrA = [5, 1, 7, 2, 9, 3, 34]
+var result = arrA.sort((a, b) => a - b)
+console.log("Assending order: ", result) // [ 1, 2,  3, 5, 7, 9, 34]
+
+var result1 = arrA.sort((a, b) => b - a)
+console.log("Dessending order: ", result1) // [ 34, 9, 7, 5, 3, 2, 1]
+
+console.log(arrA.sort()) // [1, 2, 3, 34, 5, 7, 9]
+/*
+It actually isn't random! It follows a very strict rule, but it looks random because it isn't sorting by the numerical value you expect.
+
+Here is why arrA.sort() gives you [1, 2, 3, 34, 5, 7, 9]:
+
+The Dictionary Rule (Lexicographical Order)
+By default, JavaScript's .sort() method converts every number into a string and compares them character-by-character based on their Unicode (alphabetical/dictionary) values.
+
+Think of it like looking up words in a dictionary:
+
+"1" comes first.
+
+"2" comes next.
+
+"3" comes next.
+
+"34" comes before "5" because when comparing strings character-by-character, the first character 3 comes before 5. It doesn't look at 34 as a whole number thirty-four; it just looks at the first digit.
+
+"5", "7", and "9" come last
+*/
+
+
+var sArr1 = ['hello', 'we', 'are', 'learning']
+var resultString = sArr1.sort()
+console.log("result String :", resultString)
+//result String : [ 'are', 'hello', 'learning', 'we' ]
+
+console.log("##########################################")
+//reverse() method: this method reverse all the values of array.
+var arr8 = [44, 66, 77, 22, 44, 55]
+var result = arr8.reverse()
+console.log("result :", result) // [ 55, 44, 22, 77, 66, 44 ]
+
+
+console.log("################################")
+// Map  : map function help tramform the array values using array function.
+var y1 = [5, 6, 7, 9, 12]
+let y1result = y1.map(n => n**2) 
+console.log(y1result) // [ 25, 36, 49, 81, 144 ]
+
+
+console.log("------------------")
+// filter : This method help to filter the array and verify its working.
+var z1 = [5, 7, 8, 2, 13, 14, 18, 9]
+let resultz1 = z1.filter(m => m%2 == 0)
+console.log("result :", resultz1) // [ 8, 2, 14, 18 ]
+
+
+console.log("------------------")
+// reduce : reduce method help to generate combine result from array.
+var w1 = [44, 55, 66, 11, 17, 19, 20]
+var resultw1 = w1.reduce((accumulator, num) => accumulator + num)
+console.log("Addition of all values :", resultw1)
+// Addition of all values : 232

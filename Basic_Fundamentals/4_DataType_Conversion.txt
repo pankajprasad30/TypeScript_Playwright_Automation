@@ -1,0 +1,46 @@
+Data type conversion means changing a value from one type to another.
+
+👉 There are two types of conversion:
+
+Implicit Conversion (Type Coercion)
+Explicit Conversion (Type Casting)
+
+🔹 1. Implicit Conversion (Automatic)
+
+JavaScript automatically converts types when needed.
+
+✅ Example 1: String + Number
+let result = "5" + 2;
+console.log(result); // "52"
+
+👉 Number 2 is converted to string
+
+✅ Example 2: Number – String
+let result = "5" - 2;
+console.log(result); // 3
+
+👉 String "5" is converted to number.
+
+✅ Example 3: Boolean Conversion
+let result = true + 1;
+console.log(result); // 2
+
+👉 true → 1, false → 0
+
+✅ Example 4: Null Conversion
+let result = null + 5;
+console.log(result); // 5
+
+👉 null behaves like 0
+
+⚠️ Strange Cases
+console.log("5" * "2"); // 10
+console.log("hello" * 2); // NaN
+
+👉 "hello" cannot be converted → NaN (Not a Number)
+
+
+🔹 2. Explicit Conversion (Manual)
+You manually convert using JavaScript functions.
+
+----------- DataType Conversion is pending ----------------------------
