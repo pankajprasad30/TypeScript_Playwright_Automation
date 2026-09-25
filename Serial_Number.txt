@@ -1,0 +1,10 @@
+// Java Script
+1. Variable
+2. Operators
+3. If condition
+4. loops
+5. Functions
+6. String
+7. Array
+9. Objects
+10. Exception

@@ -27,3 +27,8 @@ Notes : https://sqatools.in/javascript-function/
 9th Sept 2026
 Notes             : https://sqatools.in/javascript-string/
 Practice Programs : https://sqatools.in/javascript-string-programs/
+
+-------------------------------------------------------------------------------------
+16th Sept 2026
+Notes : https://sqatools.in/javascript-array-methods/
+Practice Programs: https://sqatools.in/scenario-based-javascript-array-programs/
