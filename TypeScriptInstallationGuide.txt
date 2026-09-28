@@ -1,0 +1,28 @@
+1. Create a directory with name as TypeScriptPractice
+2. Open TypeScriptPractice in integrated terminal.
+3. initiliaze the a package with the command
+   ->  npm init -y
+   -> it will create package.json file in TypeScriptPractice folder.
+
+4. install Typescript with below command
+   -> npm install --save-dev typescript
+   -> verify the installation is succesful
+   -> npx tsc --version : Version 7.0.2
+
+
+5. Create Typescript Configuration.
+   -> npx tsc --init
+   -> it will create tsconfig.json file in TypeScriptPractice folder.
+
+6. install ts-node dependency on TypeScriptPractice
+   -> npm install --save-dev typescript ts-node
+
+Note* :
+--> In case there is uploading issue in gid 
+then create a .gitignore file and add below gontent inside it.
+
+**/node_modules/
+**/playwright-report/
+**/test-results/***
+
+.............................................................
