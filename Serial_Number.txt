@@ -7,4 +7,6 @@
 6. String
 7. Array
 9. Objects
-10. Exception
+
+// TypeScript
+1. Opps Concept
