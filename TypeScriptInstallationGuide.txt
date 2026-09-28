@@ -26,3 +26,41 @@ then create a .gitignore file and add below gontent inside it.
 **/test-results/***
 
 .............................................................
+
+
+Configure Code Runner
+If you want to continue using the Run Code button, we can configure Code Runner to use npx ts-node.
+
+In VS Code:
+
+File → Preferences → Settings
+
+Search for:
+
+code runner executor map
+
+Find:
+
+Code-runner: Executor Map
+
+Click:
+
+Edit in settings.json
+
+Add/modify the TypeScript entry:
+
+"code-runner.executorMap": {
+    "typescript": "npx ts-node"
+}
+
+If you already have an executorMap, don't create a second one. Just change the TypeScript line.
+
+For example:
+
+{
+    "code-runner.executorMap": {
+        "javascript": "node",
+        "typescript": "npx ts-node"
+    }
+}
+
