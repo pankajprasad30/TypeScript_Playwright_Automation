@@ -34,3 +34,56 @@ const Obj1: {
 }
 
 console.log(Obj1)
+
+console.log("####################################################")
+const employee: any = {
+    empID: 'HID0341',
+    empAge: 39,
+    empEmail: 'swq@hotmail.com',
+    empPhone: 123123123,
+}
+employee.empAddress = "Bangalore, kormangala"
+console.log(employee)
+
+console.log("#############################################")
+// interface, we can use as template to declare the value of object
+
+interface details {name: string, age: number, email: string, phone: number }
+
+const user1 = {
+    name: 'Pankaj Prasad',
+    age: 39,
+    email: 'wqer@outlook.com',
+    phone: 313123123
+}
+console.log(user1)
+
+const user2 = {
+    name: "Darshika",
+    age: 3,
+    email: 'darshu@hotmail.com',
+    phone: 312312
+}
+console.log(user2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
