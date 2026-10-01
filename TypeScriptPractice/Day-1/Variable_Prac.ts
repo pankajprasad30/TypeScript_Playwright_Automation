@@ -1,2 +1,2 @@
-var a: number = 500
+var a: number = 400
 console.log(a)
