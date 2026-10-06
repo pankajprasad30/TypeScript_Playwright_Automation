@@ -6,10 +6,14 @@
 
 // if condition
 /*
-if (condition)
-{
-  // statements
-}
+
+Syntax:
+   if (condition)
+       {
+           // Statements
+       }
+ 
+
 */
 
 // voting eligibility
@@ -23,18 +27,21 @@ if(age>=18){
 
 // if-else condition
 /*
-if (condition)
-{
-    // statements
-}
-else 
-{
-    // statements
-}
+
+Syntax:
+   if (condition)
+       {
+           // Statements
+       }
+    else
+       {
+            // Statements
+        }
+
 */
 
 
-// if number is divisible by 2, it is even else odd.
+// Print number is even or odd.
 let num:number = 21
 if (num%2 == 0){
     console.log(`${num} : Number is even`)
@@ -42,6 +49,27 @@ if (num%2 == 0){
 else {
     console.log(`${num} : Number is odd`)
 }
+
+
+// Nested if-else staement
+/* 
+Syntax:
+   if (condition 1)
+       {
+           // Statements
+       }
+    else if (condition 2)
+       {
+            // Statements
+        }
+    else
+        {
+             // statement
+        }
+
+*/
+
+// Example: Depending on marks, display appropriate prade.
 
 
 
