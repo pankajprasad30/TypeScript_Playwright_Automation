@@ -1,4 +1,5 @@
--> npx playwright test
+-> npx playwright test 
+-> npx playwright test --headed
 # Runs the end-to-end tests.
 
 -> npx playwright test --ui
@@ -18,3 +19,24 @@
 
 We suggest that you begin by typing:
 -> npx playwright test
+
+# command to show execution report.
+-> npx playwright show-report
+
+
+# set number of workers from commandline
+-> npx playwright test --headed --workers=1
+   # --headed : execute test cases headed (launch browser)
+   # by default test cases executes in headless mode.
+
+# execute test cases with specific browser, workers=1, and project=chromium
+-> npx playwright test --headed --workers=1 --project=chromium
+
+# enable video recording and trace of each test cases excution.
+  -> enable trace and video from config file
+        use: {
+        trace: 'on',
+        video: 'on',
+    },
+
+  -> Execute automation test cases from command and check result

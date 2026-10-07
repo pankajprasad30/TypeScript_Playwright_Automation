@@ -71,13 +71,37 @@ Syntax:
 
 // Example: Depending on marks, display appropriate prade.
 
+let marks = 90
+if (marks>=80 && marks <= 100){
+    console.log("Grade A")
+} 
+else if(marks>=50 && marks<80){
+    console.log("Grade B")
+}
+else if(marks>=35 && marks<50) {
+    console.log("Grade C")
+} 
+else {
+    console.log("Failed in Exam")
+}
 
+// Example 4: Browser selection
+let browser: string = "safari"
 
+if(browser === "chrome"){
+    console.log("Browser is chrome")
+}
+else if(browser === "firefox"){
+    console.log("Browser is firefox")
+}
+else if(browser === "safari"){
+    console.log("Browser is safari")
+}
+else {
+    console.log("Other browser")
+}
 
-
-
-
-
+// Switch case: 
 
 
 
