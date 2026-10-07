@@ -101,11 +101,72 @@ else {
     console.log("Other browser")
 }
 
-// Switch case: 
+// Switch case statement :
+
+/* 
+Syntax:
+
+ switch (expression) {
+    case value 1:
+        // statement 1
+        break;
+    case value 2:
+        // statement 2
+        break;
+    case value n:
+        // statement n
+        break;
+    default :
+        //
+ 
+ }
 
 
+*/
 
 
+// Example 5: Depending on the values of day, print the corresponding day of the week.
 
+let day:number = 7
 
+switch (day){
+    case 1:
+        console.log("Monday")
+        break
+    case 2:
+        console.log("Tuesday")
+        break
+    case 3:
+        console.log("Wednesday")
+        break
+    case 4:
+        console.log("Thursday")
+        break
+    case 5:
+        console.log("Friday")
+        break
+    case 6:
+        console.log("Saturday")
+        break
+    case 7:
+        console.log("Sunday")
+        break
+        
+    default:
+        console.log("Invalid day")
+}
 
+// Example 6: The switch statement can also include an expression
+let x:number = 20, y:number = 11
+
+switch(x-y) // Expression
+{
+    case 0 : console.log("Fesult zero")
+             break
+    case 5 : console.log("Result is Five")
+             break
+    case 10 :console.log("Result is Ten")
+             break
+    default: console.log('Result is something else')
+
+}

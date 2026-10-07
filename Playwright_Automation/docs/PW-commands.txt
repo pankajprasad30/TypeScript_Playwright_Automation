@@ -33,6 +33,9 @@ We suggest that you begin by typing:
 -> npx playwright test --headed --workers=1 --project=chromium
 
 # enable video recording and trace of each test cases excution.
+  -> Default :
+          trace: 'on-first-retry',
+  
   -> enable trace and video from config file
         use: {
         trace: 'on',
