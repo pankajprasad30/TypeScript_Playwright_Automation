@@ -1,0 +1,6 @@
+ways to create test cases
+1. manual (POM framework )
+2. test runner (code gen)
+3. vs code extension
+4. using MCP (AI)
+5. Using Playwright Agents (AI)
