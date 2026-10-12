@@ -1,0 +1,61 @@
+There are two types of xpath:
+1. Absolute xpath : Absolute XPath traverses the entire DOM structure to find any particular element. 
+   e.g. /html/body/div[1]/div[1]/div/main/article/div/div[5]/input[1]
+   Notes: Absolute xpath is not recommended to use, as it is fragile. 
+        If any change is made on a UI, it can break at any point in time. 
+
+2. Relative xpath : relative XPath: focus on one specific element with its property to identify the element.
+     e.g. //tagname[@attribute='value'] 
+     ->  //input[@name="fromcity"]  , //*[@name="fromcity"]
+     ->  //input[@id="oneway"]
+      # If multiple elements are matching with the same attribute, 
+      then in that case, we can use indexing for those XPATHs to make it unique. 
+
+    -> (//input[@name="firstname"])[2]
+    -> //select[@id='billing_country']
+    -> //option[@value='IN']
+
+Relative XPath Methods:
+
+1. text method : if we want to identify any element with the text present on a UI, we can use the `text` method. 
+        e.g.  -> //tagname[text()='value']
+              -> //h2[text()='Passenger Details']
+              -> (//a[text()='Login Page'])[1]
+
+2. contains method : if we want to identify any of the elements with their partial attribute value 
+               or partial text value, then in that case we can use the `contains` method. 
+       e.g   -> //tagname[contains(@attribute, 'partial value')]
+             -> //input[contains(@placeholder, "Email address")]
+
+       e.g. -> //tagname[contains(text(), 'partial value')]
+            -> //h1[contains(text(), 'Dummy Ticket')]
+
+
+// Advance Xpath methods  : 
+in advanced XPath concepts, we have to use two types of elements: reference element and target element. 
+They help us to always identify the target element with the help of the reference element. 
+
+1. Parent : if we want to identify the parent element with reference to a child element, 
+         then we will use the `parent` method. 
+         e.g. //ref_tagname[@attribute='value']/parent::tar_elem[@attribute='value']
+         -> //td[text()='Indore']/parent::tr[@bgcolor='lightgrey']
+         -> //input[@value="radio_123"]/parent::li
+
+2. Ancestor : when we want to use the reference of a grandchild element and target the ancestor element, 
+            then we will use the `ancestor` method.
+
+        e.g. //ref_tagname[@attribute='value']/ancestor::tar_elem[@attribute='value'] 
+        -> //input[@value="radio_123"]/ancestor::ul
+        -> //input[@value="radio_123"]/ancestor::div[@align="left"]
+
+
+3. Following :
+            e.g. //ref_tagname[@attribute='value']/following::tar_elem[@attribute='value'] 
+            -> //input[@id="fromcity"]/following::td[text()='Delhi']
+
+4. Following sibling
+
+5. Preceding:
+           e.g. //ref_tagname[@attribute='value']/preceding::tar_elem[@attribute='value']
+           -> //input[@id="fromcity"]/preceding::input
+6. Preceding sibling
