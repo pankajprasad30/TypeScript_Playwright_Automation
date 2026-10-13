@@ -49,13 +49,61 @@ They help us to always identify the target element with the help of the referenc
         -> //input[@value="radio_123"]/ancestor::div[@align="left"]
 
 
-3. Following :
+3. Following : To identify any element which is available below the reference element, we'll use the following method. 
             e.g. //ref_tagname[@attribute='value']/following::tar_elem[@attribute='value'] 
             -> //input[@id="fromcity"]/following::td[text()='Delhi']
+            -> //input[@id="fromcity"]/following::a[text()='Login Page']
 
-4. Following sibling
+4. Following sibling: We want to identify any of the sibling elements that belong to the same 
+           family tree but are available below the reference element in the same family tree. 
+          Then we'll use the following sibling method. 
+           e.g. //ref_tagname[@attribute='value']/following-sibling::tar_elem[@attribute='value'] 
+           -> //td[text()='Indore']/following-sibling::td
+           -> //td[text()='Pune']/preceding-sibling::td/input
 
-5. Preceding:
+5. Preceding: To identify any element which is available above the reference element, we will use `preceding`. 
            e.g. //ref_tagname[@attribute='value']/preceding::tar_elem[@attribute='value']
            -> //input[@id="fromcity"]/preceding::input
-6. Preceding sibling
+           -> //input[@id="fromcity"]/preceding::a[text()='Login Page'] 
+
+6. Preceding-sibling: If you want to identify the element which belongs to the same family tree and is
+            available above the reference sibling, then we will use the preceding sibling method. 
+        e.g. //ref_tagname[@attribute='value']/preceding-sibling::tar_elem[@attribute='value'] 
+          -> //td[text()='Pune']/preceding-sibling::td/input
+
+
+single slash (/) : With the help of a single slash, we can move one step down from the reference element to the next element. 
+                  We cannot jump to any grandchild element with a single slash.
+                  ->//table[@id='cities']/tbody/tr
+
+double slash (//) : 12/helps to move from reference element to any grandchild element or any level down 
+                 -> //table[@id='cities']//td[text()='Delhi']
+
+
+Traverse to element : 
+//td[text()='Delhi']/parent::tr//input//ancestor::tbody/parent::table//preceding::h1[@align='center']
+
+######################################################
+css selector : 
+
+1. by id attribute : An element has an ID attribute. We can identify the element by using # and the ID value. 
+                    e.g.  -> #fromcity
+                          -> input#fromcity
+                          -> #billing_phone
+                          -> #email
+
+2. by class attribute : When we have the `class` attribute on the element, we can directly use it with the `.class name`. 
+                e.g   -> input.text-input
+                      -> button.btn-login
+                      -> .input_error.form_input
+                      -> div.login_logo
+
+3. by any unique attribute value :
+                e.g.  -> [attribute='value']
+                      -> [placeholder="Username"]
+                      -> [placeholder="Password"]
+                      -> input[data-test=login-button]
+
+4. by traversing to the element : Was from one element to another element in the CSS selector, we use angle brackets. 
+                      -> div[align="left"]>ul>li>input[value="radio_123"]
+                      -> div[align="left"] ul li input[value=radio_123]
