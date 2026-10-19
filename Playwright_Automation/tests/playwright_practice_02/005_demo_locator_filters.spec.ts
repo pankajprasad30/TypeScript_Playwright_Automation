@@ -10,7 +10,12 @@ import { test,expect } from "@playwright/test"
 3. Find items which are 'In Stock'
 4. Verify elements using data-testid
 5. Count all elements with test ids
-6. Find "Say goodbye" buttons for the john
+6. Find "Say goodbye" button for the John
+7. Find "Say hello" button for the Mary
+8. Find subscribe buttons using multiple conditions
+9. Find "details" button for done tasks
+10. Verify stock status counts
+
 */
 
 
@@ -100,15 +105,67 @@ test("5. Count all elements with test ids", async({page}) => {
 
 })
 
+// Chaining filter // 6. Find "Say goodbye" button for the John
+test('Find "Say goodbye" button for the John', async({page}) => {
+
+    const goodByButton = page.getByRole('listitem').filter({hasText: 'John'}).getByRole('button', {name:'Say goodbye'})
+
+    await expect(goodByButton).toBeVisible()
+    await expect(goodByButton).toHaveText('Say goodbye')
+
+})
 
 
+// Chaining filter // 7. Find "Say hello" button for the Mary
+test('7. Find "Say hello" button for the Mary', async({page}) => {
+
+    const sayHelloButton = page.getByRole('listitem').filter({hasText: 'Mary'}).getByRole('button', {name:'Say hello'})
+
+    await expect(sayHelloButton).toBeVisible()
+    await expect(sayHelloButton).toHaveText('Say hello')
+
+})
 
 
+// 8. Find subscribe buttons using multiple conditions
+// role="button" and have title "subscribe"
+
+test('8. Find subscribe buttons using multiple conditions', async({page}) => {
+
+    const subscribeButton = page.getByRole('button').and(page.getByTitle('Subscribe', {exact: true}))
+    
+    console.log("Subscribe button count:", await subscribeButton.count())
+
+    await expect(subscribeButton).toHaveCount(2)
+    await expect(subscribeButton.first()).toBeVisible()
+    await expect(subscribeButton.last()).toBeVisible()
 
 
+})
+
+// multiple conditions //9. Find "details" button for done tasks
 
 
+test('9. Find "details" button for done tasks', async({page}) => {
 
+    const doneTaskDetails = page.getByRole('listitem').filter({hasText: 'done'}).getByRole('button', {name:'details'})
+    
+    await expect(doneTaskDetails).toHaveCount(2)
+
+})
+
+
+// 10. Verify stock status counts
+test('10. Verify stock status counts', async({page}) => {
+
+    const inStock = page.getByRole('listitem').filter({hasText: 'In stock'})
+
+    const outStock = page.getByRole('listitem').filter({hasText: 'Out of stock'})
+    
+    await expect(inStock).toHaveCount(3)
+    await expect(outStock).toHaveCount(2)
+
+})
 
 
 
