@@ -9,6 +9,8 @@ import { test,expect } from "@playwright/test"
 2. Count items not having "Out of stocks"
 3. Find items which are 'In Stock'
 4. Verify elements using data-testid
+5. Count all elements with test ids
+6. Find "Say goodbye" buttons for the john
 */
 
 
@@ -72,9 +74,29 @@ test("4. Verify elements using data-testid", async({page}) => {
     await expect(banana).toBeVisible()
     await expect(orange).toBeVisible()
 
-    await expect(apple).toContainText('apple')
+    await expect(apple).toContainText('apple') // 🍏 apple
     await expect(banana).toContainText('banana')
     await expect(orange).toContainText('orange')
+
+});
+
+
+// 5. Count all elements with test ids
+test("5. Count all elements with test ids", async({page}) => {
+     //page.getByTestId("[data-testid]")
+     const testIDElements = page.locator("[data-testid]")
+
+     // Access different positions
+    const first = testIDElements.first()
+    const second = testIDElements.last()
+    const nth = testIDElements.nth(3)
+
+    console.log(await first.innerText())
+    console.log(await second.innerText())
+    console.log(await nth.innerText())
+
+    // Verify the count
+    await expect(testIDElements).toHaveCount(5)
 
 })
 
