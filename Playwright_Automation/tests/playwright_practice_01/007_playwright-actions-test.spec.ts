@@ -1,4 +1,16 @@
 import {test, expect} from '@playwright/test'
+import * as fs from 'node:fs/promises'
+
+async function createFile(filepath: string, content :string) {
+    try {
+        await fs.writeFile(filepath, content, {flag: 'wx'})
+        console.log("File Created successfully")
+    } catch(error) {
+        console.log("File already exist")
+
+    }
+
+}
 
 test.describe("Playwright Action test cases", () => {
     test("Enter text in taxbox", async({page})=> {
@@ -103,6 +115,89 @@ test.describe("Playwright Action test cases", () => {
         await SkillDD.selectOption(['Python', 'Selenium', 'Playwright'])
 
     })
+
+    // Different click options:
+    test("Different click options", async({page}) => {
+        await page.goto("https://sqatools.in/automation-practice-page/")
+        const Dummy_Page = page.getByRole("link", {name:"Dummy Page"}).first() // .first() — selects the first matching link.
+        await Dummy_Page.click({modifiers: ['Control']})
+
+        const Login_Page = page.getByRole("link", {name: "Login Page"}).first()
+        await Login_Page.click({modifiers: ["Shift"]})
+
+        // .pressSequentially: Enter character by character
+        const address = page.locator("#address")
+        await address.clear()
+        await address.pressSequentially("Chabua, Assam")
+        await page.close()
+    })
+
+
+    // keyboard operations and shortcuts
+    test("keyboard operations and shortcuts", async({page}) => {
+        await page.goto("https://sqatools.in/automation-practice-page/")
+        const usernameField = page.getByPlaceholder("Enter username")
+        await usernameField.fill("user1@gmail.com")
+        await usernameField.press("Control+A") // Seleft all
+        await usernameField.press("Control+C") // Copy content
+        
+        const enter_Address = page.locator("#address")
+        await enter_Address.clear()
+        await enter_Address.press("Control+V") // Paste content
+
+    })
+
+
+
+    // upload file and verify
+    test("@upload Upload file and verify", async({page}) => {
+        await test.step.skip("Upload single files", async() => { // for skip--> .skip
+            await page.goto("https://sqatools.in/automation-practice-page/")
+            const File_Upload = page.getByRole("heading", {name: "File Upload"})
+            await File_Upload.scrollIntoViewIfNeeded() // for scrolling page to proper location
+
+            const File1Path = './Test_Files/file_Upload1.txt' // location of file
+            const fileUpload = page.locator("#fileUpload")
+            fileUpload.setInputFiles(File1Path) // file location 
+            await page.waitForTimeout(3000)// 3 seconds
+        })
+       // Navigate to integrated terminal--> npx playwright text --grep '@upload' --project=chromium --headed
+
+
+        await test.step("Upload multiple files", async() => {
+            await page.goto("https://app.thetestingacademy.com/playwright/widgets/upload-download")
+            const File2Path = './Test_Files/file_Upload2.txt' // location of file
+            const File3Path = './Test_Files/file_Upload3.txt' // location of file
+            createFile(File2Path, "We are Learning Playwright Action")
+            createFile(File3Path, "We are Learning Playwright Action")
+
+            const multiUpload = page.locator("#multi-upload")
+            await multiUpload.scrollIntoViewIfNeeded() // for scrolling page to proper location
+            multiUpload.setInputFiles([File2Path, File3Path])
+            await page.waitForTimeout(3000)
+        })
+
+    })
+
+    // Perform drap and drop
+    test("Perform drag & Drop Operation", async({page})=> {
+        test.setTimeout(60_000)
+        await page.goto("https://sqatools.in/automation-practice-page/")
+        await page.waitForLoadState("load")
+        await page.getByRole("link", {name: "Python Practice Exercises"}).focus()
+        await page.waitForTimeout(3000)
+        await page.getByRole("link", {name: "Python Practice Exercises"}).press("Escape")
+    
+        const dragElem = page.locator("#drag1")
+        const dropElem = page.locator(".drop")
+        await dragElem.scrollIntoViewIfNeeded()
+        await dragElem.dragTo(dropElem)
+        await expect(dropElem).toHaveText(/Drag Me/)
+        await page.waitForTimeout(3000)
+
+    });
+
+
 
 })
 

@@ -1,0 +1,7 @@
+Upload files
+
+You can select input files for upload using the locator.
+setInputFiles() method. It expects first argument to point to an input element
+ with the type "file". Multiple files can be passed in the array. 
+If some of the file paths are relative, they are resolved relative to the current working directory. 
+Empty array clears the selected files.
