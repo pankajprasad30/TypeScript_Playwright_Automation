@@ -1,10 +1,11 @@
 import {test, BrowserContext, Page, chromium, firefox} from '@playwright/test'
 
 // Scenario 1: 1 Browser with 2 tab
-test.describe("Handle browser windows", async() => {
-    test("Scenario 1: 1 Browser with 2 tab", async({browser}) => {
+test.describe("Handle browser windows", async() => { // test.describe() is used to group multiple related test cases into one test suite.
+    test("Scenario 1: 1 Browser with 2 tab", async({browser}) => { // test() = Defines a test case.
         test.setTimeout(120_000)
-        const context: BrowserContext = await browser.newContext() // Creates a new browser context.
+        //Browser = Google Chrome application, BrowserContext = A separate browsing environment inside Chrome., Page = A tab inside that environment.
+        const context: BrowserContext = await browser.newContext() // browser.newContext() creates a new isolated browser session.
         const page1: Page = await context.newPage() // Creates a new tab.
         const page2: Page = await context.newPage()
 
@@ -46,7 +47,7 @@ test.describe("Handle browser windows", async() => {
     // Scenario 3: 2 diff Browser with 2 context with 1 tab each
     test("Scenario 3: 2 diff Browser with 2 context with 1 tab each", async()=> {
         test.setTimeout(120_000)
-        const browser1 = await chromium.launch({headless: false})
+        const browser1 = await chromium.launch({headless: false}) // headless: false--> You can see the browser window and watch the automation.
         const browser2 = await firefox.launch({headless: false})
         const context1: BrowserContext = await browser1.newContext()
         const context2: BrowserContext = await browser2.newContext()
@@ -66,8 +67,8 @@ test.describe("Handle browser windows", async() => {
         await page2.getByRole("radio", {name: "Male", exact: true}).check()
     });
 
-    // Scenario 4: 1 Browser with 2 context with 1 tab each with click action
-    test("Scenario 4: 1 Browser with 2 context with 1 tab each with click action", async({browser})=> {
+    // Scenario 4: 1 Browser with 1 context with 1 tab each with click action
+    test("Scenario 4: 1 Browser with 1 context with 1 tab each with click action", async({browser})=> {
         test.setTimeout(120_000)
         const context1: BrowserContext = await browser.newContext()
         const page1: Page = await context1.newPage()
@@ -90,6 +91,8 @@ test.describe("Handle browser windows", async() => {
 })
 
 /* 
+Note* : "Playwright Test Runner automatically manages the lifecycle of browser fixtures. Once test execution is completed, 
+it cleans up the associated pages, contexts and browser resources."
 Playwright: Browser, BrowserContext, Page — explained block by block
 Your code demonstrates four ways to handle browser windows, tabs, and isolated browser sessions using Playwright with TypeScript.
 
