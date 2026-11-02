@@ -11,6 +11,8 @@ test.describe("Handle Iframe Test cases", async()=> {
         console.log(await para.textContent())
     });
 
+    // command to run: npx playwright test --grep "@frame" --headed --project=chromium
+
     test("@frame2 handle menu items",async({page})=> {
         await page.goto("https://www.globalsqa.com/demo-site/frames-and-windows/#iFrame")
         const FrameElem =  page.frameLocator('iframe[name=globalSqa]')

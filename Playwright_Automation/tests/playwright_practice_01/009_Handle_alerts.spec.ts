@@ -8,6 +8,7 @@ test.describe("Handle Playwright Alerts", async()=> {
             console.log(dialog.message())
             dialog.accept()
         });
+        // playwright auto dismiss alert internally, so it's not visible.
         await page.locator("#alertBtn").click()
     });
 
@@ -21,7 +22,7 @@ test.describe("Handle Playwright Alerts", async()=> {
         });
         await page.locator("#confirmBtn").click()
         const msg = page.locator("#demo")
-        console.log(await msg.textContent())
+        console.log(await msg.textContent()) // for printing message
         expect(await msg.textContent()).toEqual("You pressed OK!")
     });
 
@@ -40,7 +41,7 @@ test.describe("Handle Playwright Alerts", async()=> {
 
     test("Accept prompt Alert", async({page})=> {
         await page.goto("https://testautomationpractice.blogspot.com/")
-        const Name = "Mohit"
+        const Name = "Pankaj"
         page.on("dialog", dialog=> {
             console.log(dialog.message())
             dialog.accept(Name)
@@ -53,7 +54,7 @@ test.describe("Handle Playwright Alerts", async()=> {
 
     test("dismiss prompt Alert", async({page})=> {
         await page.goto("https://testautomationpractice.blogspot.com/")
-        const Name = "Mohit"
+        const Name = "Pankaj"
         page.on("dialog", dialog=> {
             console.log(dialog.message())
             dialog.dismiss()
