@@ -1,13 +1,13 @@
 import {test} from '../../fixture/baseFixture.ts'
 
-test.describe("Fixture specific test cases", async()=> {
+test.describe("Fixture specific test cases", ()=> {
 
     test("Add user details : firstname", async({Mypage})=> {
-        await Mypage.locator("#firstname").first().fill("Rahul")
+        await Mypage.locator('[data-testid="login-username"]').first().fill("Rahul")
     });
 
     test("Add user details: lastname : ", async({Mypage})=> {
-        await Mypage.locator("#firstname").nth(1).fill("Sharma")
+        await Mypage.locator('[data-testid="login-password"]').fill("Sharma")
     });
 })
 

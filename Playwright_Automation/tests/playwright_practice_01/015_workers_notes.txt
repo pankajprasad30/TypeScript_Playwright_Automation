@@ -1,0 +1,10 @@
+condition 1.  : 1 test suite with 1 project it will pick 1 worker to execute.
+             -> npx playwright test --grep "@feature" --porject=chromium --headed 
+
+condition 2. : One test suite, without defining the project, will pick the total number of workers 
+            available in the system. Let's say we have a 4-CPU system. It will pick 4 workers.  
+            -> npx playwright test --grep "@feature" --headed 
+
+Condition 3. : One test suite without defining the project, but specifying the number of workers as 2: 
+              then it will only pick the 2 workers to execute the test case against all the available projects. 
+            -> npx playwright test --grep "@feature" --headed --workers=2
