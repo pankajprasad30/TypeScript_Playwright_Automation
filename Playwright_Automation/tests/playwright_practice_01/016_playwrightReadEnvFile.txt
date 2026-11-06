@@ -1,0 +1,184 @@
+Ref website: https://sqatools.in/playwright-read-env-file-and-use-environment-variables/
+
+1. Right click Playwright_Automation and open integrated Terminal
+--> npm install dotenv
+This will add dependency in package.json and modules/engine in package-lock.json
+
+2. Create a .env File
+and add e.g
+BASE_URL=https://opensource-demo.orangehrmlive.com
+USERNAME_VALUE=Admin
+PASSWORD_VALUE=admin123
+
+3. Load Environment Variables
+Open playwright.config.ts.
+first uncomment --> Check line number 7,8,9
+// import dotenv from 'dotenv';
+// import path from 'path';
+// dotenv.config({ path: path.resolve(__dirname, '.env') });
+
+----> Now Playwright can access variables from .env
+..........................................................................................
+4. Use different .env files for dirrefent environment
+.env.dev
+.end.qa
+.env.stage
+.env.prod
+
+add data inside means url, username, password
+
+5. Load Environment-Specific Files
+
+const environment = process.env.TEST_ENV || 'qa';
+dotenv.config({ path: path.resolve(__dirname, `.env.${environment}`) });
+
+runtest: 
+// $env:TEST_ENV="prod"; npx playwright test --grep "@multienv" --project=chromium
+// $env:TEST_ENV="qa"; npx playwright test --grep "@multienv" --project=chromium
+
+6. For 'setup db','cleanup db'
+
+projects: [
+  {
+    name: 'setup db',
+    testMatch: /global\.setup\.ts/,
+    teardown: 'cleanup db',
+  },
+  {
+    name: 'cleanup db',
+    testMatch: /global\.teardown\.ts/,
+  },
+  {
+    name: 'chromium',
+    use: { ...devices['Desktop Chrome'] },
+    dependencies: ['setup db'],
+  },
+],
+
+Playwright_Automation/
+│
+├── tests/
+│   ├── global.setup.ts
+│   ├── global.teardown.ts
+│   │
+│   └── playwright_practice_01/
+│       └── 016_playwright-read-env.spec.ts
+│
+└── playwright.config.ts
+
+runtest: 
+// $env:TEST_ENV="prod"; npx playwright test --grep "@multienv" --project=chromium
+// $env:TEST_ENV="qa"; npx playwright test --grep "@multienv" --project=chromium
+
+
+
+
+
+
+Playwright Read .env File and Use Environment Variables
+
+# Step 1: Install dotenv Package
+Playwright does not automatically load .env files, so install the dotenv package.
+--> npm install dotenv
+
+# Step 2: Create a .env File
+Create a file named .env in the project root directory(Playwright_Automation).
+BASE_URL=https://opensource-demo.orangehrmlive.com
+USERNAME=Admin
+PASSWORD=admin123
+
+
+Project Structure:
+PlaywrightProject/
+│
+├── .env
+├── playwright.config.ts
+├── tests/
+└── package.json
+
+# Step 3: Load Environment Variables
+Open playwright.config.ts.
+
+import { defineConfig } from '@playwright/test';
+import dotenv from 'dotenv';
+dotenv.config();
+export default defineConfig({
+  use: {
+    baseURL: process.env.BASE_URL
+  }
+});
+
+Now Playwright can access variables from .env.
+
+# Step 4: Use Environment Variables in Tests
+import { test, expect } from '@playwright/test';
+
+test('Login Test', async ({ page }) => {
+
+  await page.goto('/');
+
+  await page.fill('input[name="username"]', process.env.USERNAME!);
+
+  await page.fill('input[name="password"]', process.env.PASSWORD!);
+
+  await page.click('button[type="submit"]');
+
+  await expect(page.locator('.oxd-topbar-header-title'))
+    .toContainText('Dashboard');
+});
+
+# Step 5: Create a Separate Environment Configuration File
+Create config/env.ts
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+export const env = {
+  baseUrl: process.env.BASE_URL || '',
+  username: process.env.USERNAME || '',
+  password: process.env.PASSWORD || ''
+};
+
+Use it in your test:
+
+import { test } from '@playwright/test';
+import { env } from '../config/env';
+
+test('Login Test', async ({ page }) => {
+
+  await page.goto(env.baseUrl);
+
+  await page.fill('input[name="username"]', env.username);
+
+  await page.fill('input[name="password"]', env.password);
+});
+
+This approach is cleaner and easier to maintain.
+
+# Step 6: Use Different .env Files for Different Environments
+.env.dev
+.env.qa
+.env.stage
+.env.prod
+
+Example:
+.env.qa
+BASE_URL=https://qa.example.com
+USERNAME=qauser
+PASSWORD=qapassword
+
+# Step 7: Load Environment-Specific Files
+import dotenv from 'dotenv';
+
+const environment = process.env.TEST_ENV || 'qa';
+
+dotenv.config({
+  path: `.env.${environment}`
+});
+
+-> open Terminal
+QA 
+TEST_ENV=qa npx playwright test
+
+Production
+TEST_ENV=prod npx playwright test
