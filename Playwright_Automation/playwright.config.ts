@@ -14,6 +14,12 @@ dotenv.config({ path: path.resolve(__dirname, `.env.${environment}`) });
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  // This time out will be applicable for all the test cases in the entire project.
+    timeout: 50_000,
+  globalTimeout: 1*60*60*1000,
+  expect: {
+       timeout : 15_000
+  },
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
