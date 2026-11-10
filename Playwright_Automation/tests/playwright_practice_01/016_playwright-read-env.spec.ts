@@ -9,7 +9,7 @@ test.describe("Read environment variable from .env file", ()=> {
         await page.getByPlaceholder("Username").fill(process.env.USERNAME_VALUE!)
         await page.getByPlaceholder("Password").fill(process.env.PASSWORD_VALUE!)
         await page.getByRole('button', { name: 'Login' }).click()
-       // await expect(page.getByRole('link', { name: 'Dashboard' })).toBeVisible({timeout:30_000})
+        await expect(page.getByRole('link', { name: 'Dashboard' })).toBeVisible({timeout:30_000})
     })
 
     test("@multienv Read credentilas from different environment file", async({page}) => {

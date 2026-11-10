@@ -55,6 +55,9 @@ projects: [
   },
 ],
 
+Note* : On beaker Testing icon click and check setUp dp and cleanUp db is enabled
+and also run global setup on each run.
+
 Playwright_Automation/
 │
 ├── tests/
