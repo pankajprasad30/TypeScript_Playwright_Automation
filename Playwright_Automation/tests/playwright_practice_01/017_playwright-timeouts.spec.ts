@@ -53,7 +53,7 @@ test.describe("Playwright Locators Method with timeout ", ()=> {
     test.setTimeout(45_000)
     test("GetbyRole Method", async({page})=> {
         // The test-level timeout, which will be applicable only to a specific test case 
-        test.setTimeout(40_000)
+        //test.setTimeout(40_000)
         await page.setViewportSize({width: Winwidth, height: Winheight})
         //<button role="button">Primary Action</button>
         await page.goto("https://testautomationpractice.blogspot.com/p/playwrightpractice.html", {timeout: 10_000})
