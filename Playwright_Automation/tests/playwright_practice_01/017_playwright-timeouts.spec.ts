@@ -65,6 +65,7 @@ test.describe("Playwright Locators Method with timeout ", ()=> {
         const value = await page.getByRole("menuitem", {name: "Contact"}).textContent()
         console.log(value)
     })
+    // default timeout--> Error: page.waitForTimeout: Test timeout of 30000ms exceeded.
 
     test("GetbyText Method", async({page})=> {
         await page.setViewportSize({width: Winwidth, height: Winheight})

@@ -15,7 +15,7 @@ dotenv.config({ path: path.resolve(__dirname, `.env.${environment}`) });
  */
 export default defineConfig({
   // This time out will be applicable for all the test cases in the entire project.
-    timeout: 50_000,
+  timeout: 50_000,
   globalTimeout: 1*60*60*1000,
   expect: {
        timeout : 15_000
@@ -37,9 +37,20 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    viewport: { width: 2000, height: 1000 },
     trace: 'on',
     video: 'on',
+    navigationTimeout: 20_000,
+    actionTimeout: 15_000,
+    
+    launchOptions: {
+      slowMo: 3000
+    }
+
   },
+  //   trace: 'on',
+  //   video: 'on',
+  // },
 
   /* Configure projects for major browsers */
   projects: [
