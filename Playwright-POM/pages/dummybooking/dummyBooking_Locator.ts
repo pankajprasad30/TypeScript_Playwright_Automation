@@ -19,6 +19,10 @@ export class DummyBookingLocators extends basePage {
         return this.page.getByTestId("login-button")
     }
 
+    get SearchHeading() {
+        return this.page.getByRole('heading', { name: 'Search flights', exact: true})
+    }
+
     get fromCityDrodown() {
         return this.page.getByTestId("from-city")
     }
@@ -50,5 +54,10 @@ export class DummyBookingLocators extends basePage {
     get infantDrodown() {
         return this.page.getByTestId("infants")
     }
+
+    get SearchFlightButton() {
+        return this.page.getByTestId("search-button")
+    }
+
 
 }
