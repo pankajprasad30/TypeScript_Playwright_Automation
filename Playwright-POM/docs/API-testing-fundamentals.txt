@@ -1,0 +1,21 @@
+API : APIs stand for application programming interface. 
+
+REST `API` 
+HTTP Methods:
+- GET method : get method: retry the information from the server and return the output in the form of JSON. 
+- POST method : POST method does. This method helps to create a new entry in the database. 
+- PUT method : if you want to update some existing data in the `API`, then we use the `PUT` method. 
+- PATCH method : this method, we use to update any specific field in the database. Then we use the patch method. 
+- DELETE method: delete method helps us to delete the complete data from the server. 
+
+Different categories of status codes 
+100 - 199 : retry information, or it's called informational status. 
+200 - 299 : this range status code comes when we try to execute any certain `API` or get the generated result. 
+300 - 399 : it is for redirection. If your `API` path is changed.
+400 - 499 : this status code belongs to the client error. It means the entry that you have 
+            provided is wrong, the user data that you have provided is wrong, and the header
+            you have provided is wrong. 
+
+500 - 599 : this status code belongs to the server error. If anything went wrong on the server side 
+           (let's say database service restart, UI service restart, backend service not working), 
+           at that time it throws this error.  
