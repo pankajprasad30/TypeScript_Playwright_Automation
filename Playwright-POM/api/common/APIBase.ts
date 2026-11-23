@@ -14,7 +14,8 @@ export class APIBase {
             headers: header,
             data: request_body
         })
-        console.log("response:", response)
+        console.log(await response.text())
+        console.log("response:", await response.json())
         console.log("status", response.status())
         return response 
     }
@@ -26,7 +27,7 @@ export class APIBase {
             headers: header,
             data: request_body
         })
-        console.log("response:", response)
+        console.log("response:", await response.json())
         console.log("status", response.status())
         return response 
     }
@@ -38,7 +39,7 @@ export class APIBase {
             headers: header,
             data: request_body
         })
-        console.log("response:", response)
+        console.log("response:", await response.json())
         console.log("status", response.status())
         return response 
     }
@@ -50,7 +51,7 @@ export class APIBase {
             headers: header,
             data: request_body
         })
-        console.log("response:", response)
+        console.log("response:", await response.json())
         console.log("status", response.status())
         return response 
     }
@@ -62,13 +63,8 @@ export class APIBase {
             headers: header,
             data: request_body
         })
-        console.log("response:", response)
+        console.log("response:", await response.json())
         console.log("status", response.status())
         return response 
     }
-
-
-
-
-
 }
