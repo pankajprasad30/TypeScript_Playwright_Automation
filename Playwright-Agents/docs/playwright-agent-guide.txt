@@ -72,7 +72,7 @@ test('seed', async ({ page }) => {
   await expect(page.locator('.title')).toHaveText('Products');
 });
 
-prompt : 
+prompt : Open your AI tool’s chat, choose the planner agent and describe what to cover: -->
 Using the seed test, create a test plan for the cart and 
 checkout flows of Sauce Demo: adding and removing items, cart badge, 
 checkout information validation and order completion.
