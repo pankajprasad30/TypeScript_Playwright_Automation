@@ -1,0 +1,78 @@
+# Steps integrate the Playwright agent 
+1. Create a folder with the name "playwright-Agents". 
+2. Open integrated terminal in a Playwright-Agents. 
+3. Now install Playwright in this folder with the below command. 
+   -> npm init playwright@latest
+   -> go with all default options shown in the terminal 
+   -> Complete the installation. Wait till the "Happy hacking" message. 
+
+4. Configure Playwright agent in terminal below command 
+   -> npx playwright init-agents --loop=vscode
+   -> The agent installation is done. It will create one agent folder inside the .git folder, where all three agent files are available. 
+  
+ 🎭 Using project "chromium" as a primary project
+ 📝 specs\README.md - directory for test plans
+ 🌱 tests\seed.spec.ts - default environment seed file
+ 🤖 .github\agents\playwright-test-generator.agent.md - agent definition
+ 🤖 .github\agents\playwright-test-healer.agent.md - agent definition
+ 🤖 .github\agents\playwright-test-planner.agent.md - agent definition
+ 🔧 .vscode\mcp.json - mcp configuration
+ 🔧 .github\workflows\copilot-setup-steps.yml - GitHub Copilot setup steps
+
+
+ 🔧 TODO: GitHub > Settings > Copilot > Coding agent > MCP configuration
+------------------------------------------------------------------
+{
+  "mcpServers": {
+    "playwright-test": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "playwright",
+        "run-test-mcp-server"
+      ],
+      "tools": [
+        "*"
+      ]
+    }
+  }
+}
+
+# Enable the agents inside your Copilot chat window. 
+  -> Click on a plus icon. 
+  -> Select the agent. 
+  -> Click on "Configure Custom Agent". 
+  -> In the user section, click on the plus icon. 
+  -> Use the default option visible with .github. 
+  -> Provide the test agent name. e.g testagent
+  -> You will create one.test agent in your root directory. 
+  -> Now all the workspace agents are auto-visible. 
+  -> Close all the windows.
+  -> Now all three agents will be visible in an AI chat window. 
+
+-> Open all three agent files and provide tool access. 
+   -> Open planner agent.md file. 
+   -> click on Configure tool. 
+   -> Now select all available tools checkboxs. 
+   -> Then save the file. 
+   -> Repeat the same process for the remaining two tools as well. 
+
+
+Agent : planner agent
+seed.spec.ts : pasted in this folder below code--> 
+
+// tests/seed.spec.ts
+import { test, expect } from '@playwright/test';
+
+test('seed', async ({ page }) => {
+  await page.goto('https://www.saucedemo.com/');
+  await page.getByPlaceholder('Username').fill('standard_user');
+  await page.getByPlaceholder('Password').fill('secret_sauce');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await expect(page.locator('.title')).toHaveText('Products');
+});
+
+prompt : 
+Using the seed test, create a test plan for the cart and 
+checkout flows of Sauce Demo: adding and removing items, cart badge, 
+checkout information validation and order completion.
