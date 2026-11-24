@@ -57,8 +57,8 @@
    -> Then save the file. 
    -> Repeat the same process for the remaining two tools as well. 
 
-
-Agent : planner agent
+.....................................................................................
+Agent : planner agent (playwright-test-planner)
 seed.spec.ts : pasted in this folder below code--> 
 
 // tests/seed.spec.ts
@@ -72,7 +72,43 @@ test('seed', async ({ page }) => {
   await expect(page.locator('.title')).toHaveText('Products');
 });
 
+
 prompt : Open your AI tool’s chat, choose the planner agent and describe what to cover: -->
 Using the seed test, create a test plan for the cart and 
 checkout flows of Sauce Demo: adding and removing items, cart badge, 
 checkout information validation and order completion.
+
+------------------------------------------------------------------------------------------
+Agent : Generator Agent (playwright-test-generator)
+Prompt :
+- Generate tests for all section  of specs/cart-checkout.plan.md
+- Page object model design pattern: follow and cover all the concepts of the page object model, along with the page manager and base file.
+- Page object model directory structure should be given below. 
+- Project
+           - pages
+           - testdata
+           - tests
+           - fixtures
+           - utils
+            
+------------------------------------------------------------------------------------------
+Agent : Healer Agent(playwright-test-healer)
+Prompt : Run the cart tests and fix any failures.
+
+
+#####################################################################
+// Automate API test cases with the help AI agent.
+Agent : Planner
+Prompt : Write a comprehensive test plan that includes all possible
+ positive and negative scenarios for public APIs from the given API documentation page. 
+ https://restful-api.dev/
+
+------------------------------------
+ Agent : Generator
+ Prompt :  Generate tests for all section  of Generate tests for all section  of specs/restful-api-public.plan.md
+          - Existing page object design pattern for API automation test cases as well 
+          - Use the existing framework and create a separate section for API test cases and asses  
+
+------------------------------------
+Agent : Healer
+Prompt : Run the cart tests and fix any failures.

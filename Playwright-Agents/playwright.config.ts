@@ -36,17 +36,26 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
+      testIgnore: '**/api_test/**',
       use: { ...devices['Desktop Chrome'] },
     },
 
     {
       name: 'firefox',
+      testIgnore: '**/api_test/**',
       use: { ...devices['Desktop Firefox'] },
     },
 
     {
       name: 'webkit',
+      testIgnore: '**/api_test/**',
       use: { ...devices['Desktop Safari'] },
+    },
+
+    {
+      name: 'api',
+      testMatch: '**/api_test/**/*.spec.ts',
+      workers: 1,
     },
 
     /* Test against mobile viewports. */
